@@ -39,35 +39,35 @@ console.log(4 + +'5');//    perevod stroki v chislovoi format
 
 // inkriment i decriment
 let incr = 10,
-    decr = 5;
+	decr = 5;
 incr++; //postfiksnaya rasstanovka inkrimenta
 decr--;
 console.log(incr, decr);
 
-let incr = 10,
-    decr = 5;
-console.log(++incr, ++decr);  //prefiksnaya rasstanovka inkrimenta
+let incr1 = 10,
+	decr1 = 5;
+console.log(++incr1, ++decr1);  //prefiksnaya rasstanovka inkrimenta
 
-console.log(5%2);   //ostatok ot deleniya
+console.log(5 % 2);   //ostatok ot deleniya
 
-console log (2*4 == 8);  // Sravnivanie
+console.log(2 * 4 == 8);  // Sravnivanie
 
-console.log (2*4 === '8');   // strogoe sravnenie chisls]a s chislom
+console.log(2 * 4 === '8');   // strogoe sravnenie chisls]a s chislom
 /*
 &&
 
 ||
 */
 const isChecked = true,
-isClose = true;
+	isClose = true;
 
-console.log (isChecked && isClose); // i
+console.log(isChecked && isClose); // i
 
 
-const isChecked = true,
-isClose = true;
+const isChecked1 = true,
+	isClose1 = true;
 
-console.log (isChecked || isClose); // i
+console.log(isChecked1 || isClose1); // i
 // Urok 16
 //git init //iniciacyya papki kotoruyu nuzhno otslrzhivat
 //git config --local user.name "Dima"
@@ -76,7 +76,7 @@ console.log (isChecked || isClose); // i
 //git add -A
 //git commit -a -m"3commit"
 //git log
-//git
+//git push -u origin main 
 //
 //
 //
