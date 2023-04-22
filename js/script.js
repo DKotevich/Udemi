@@ -38,14 +38,12 @@ console.log('4' + ' - object');
 console.log(4 + +'5');//    perevod stroki v chislovoi format
 
 // inkriment i decriment
-let incr = 10,
-	decr = 5;
+let incr = 10, decr = 5;
 incr++; //postfiksnaya rasstanovka inkrimenta
 decr--;
 console.log(incr, decr);
 
-let incr1 = 10,
-	decr1 = 5;
+let incr1 = 10, decr1 = 5;
 console.log(++incr1, ++decr1);  //prefiksnaya rasstanovka inkrimenta
 
 console.log(5 % 2);   //ostatok ot deleniya
@@ -58,14 +56,12 @@ console.log(2 * 4 === '8');   // strogoe sravnenie chisls]a s chislom
 
 ||
 */
-const isChecked = true,
-	isClose = true;
+const isChecked = true, isClose = true;
 
 console.log(isChecked && isClose); // i
 
 
-const isChecked1 = true,
-	isClose1 = true;
+const isChecked1 = true, isClose1 = true;
 
 console.log(isChecked1 || isClose1); // i
 // Urok 16
