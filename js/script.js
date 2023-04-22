@@ -69,3 +69,15 @@ isClose = true;
 
 console.log (isChecked || isClose); // i
 // Urok 16
+//git init //iniciacyya papki kotoruyu nuzhno otslrzhivat
+//git config --local user.name "Dima"
+//git config --local user.email "kondratevichdima@gmail.com"
+//git status
+//git add -A
+//git commit -a -m"3commit"
+//git log
+//git
+//
+//
+//
+//token: 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
