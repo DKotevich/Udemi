@@ -76,4 +76,28 @@ console.log(isChecked1 || isClose1); // i
 //
 //
 //
-//token: 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
+//token: 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
+
+
+//Urok 17  //rabota s GIT na 2x komputerah
+
+// admin@MacBook-Air-Admin Udemy %  cd ..  // viyty is papki
+// admin@MacBook-Air-Admin Udemy %  cd work  // zaity v kakuyuto rabochuu papku
+//admin@MacBook-Air-Admin Udemy %git clone https://github.com/DKotevich/Udemi.git project 2 //kloniruyu papku s gita na rabochiy komp v papku project 2
+//
+// admin@MacBook-Air-Admin Udemy % git pull  //ctob poluchit svezhuu versiu failov nuzhno na novom compe vipolnit git pull
+// merge eto sliyanie dvuh versiy
+//
+//git ignore faily kotorie ne pushatsa
+//
+//Urok 18
+//ssl sertifikat (httpS) - fail na servere 
+//FTP file tranfer protocol
+//SSH - protokol dlya upravleniya operacionnimy sistemami i peredachi faiov, ispolzuet kluchi
+//
+//
+//
+//
+//
+//
+//
