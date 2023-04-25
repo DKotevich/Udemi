@@ -40,7 +40,7 @@ const persone = 'Alex'; // stroka
 console.log(persone);
 let undef; //pustaya peremennaya = undefined
 console.log(undef);
-// objecty !!!
+//                                     objecty !!!
 const object = {
 	name: 'lohn',
 	age: 25,
@@ -170,3 +170,18 @@ console.log(isChecked1 || isClose1); // i
 //FTP file tranfer protocol
 //SSH - protokol dlya upravleniya operacionnimy sistemami i peredachi faiov, ispolzuet kluchi
 //
+//urok 19
+/*
+let numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', '');
+let personalMovieDB = {
+	count: numberOfFilms,
+	movies: {},
+	actors: {},
+	genders: [],
+	privat: false
+};
+personalMovieDB.movies.a =  prompt('Один из последних просмотренных фильмов', '');
+personalMovieDB.movies.b = prompt('На сколько оцените его?', '');
+ 
+
+console.log(personalMovieDB);*/
