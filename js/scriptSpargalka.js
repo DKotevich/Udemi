@@ -151,7 +151,7 @@ console.log(isChecked1 || isClose1); // i
 //
 //
 //
-//token: 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
+//token: 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
 
 
 //Urok 17  //rabota s GIT na 2x komputerah
