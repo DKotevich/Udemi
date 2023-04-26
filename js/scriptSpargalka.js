@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 'use strict';
 //console.log(1);
 let number = 5; //let меняется
@@ -151,7 +152,7 @@ console.log(isChecked1 || isClose1); // i
 //
 //
 //
-//token: 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
+//
 
 
 //Urok 17  //rabota s GIT na 2x komputerah
@@ -185,3 +186,44 @@ personalMovieDB.movies.b = prompt('На сколько оцените его?', 
  
 
 console.log(personalMovieDB);*/
+
+// urok 20 usloviya
+// eslint-disable-next-line no-constant-condition
+if (4 == 9) {
+	console.log('ok');
+}
+else {
+	console.log('Error');
+}
+
+// vlozhennie usloviya
+const num = 50;
+if (num < 49) {
+	console.log('error');
+} else if (num > 100) {
+	console.log('Mnogo');
+} else {
+	console.log('Ok');
+}
+const numb = 50;
+//ternarniy operator
+(numb === 50) ? console.log('ok') : console.log('Error');
+//uslovie//T/O///v sluchae true////inache esli false
+
+//konstrukciya swich (modifikaciya IF na neskolko usloviy)
+const num2 = '50';
+switch (num2) {
+	case '40':       //znachenie kotoroe nuzhno proverit (tolko strogoe ecli (ne >, ne <))
+		console.log('Neverno');
+		break;         //Obyazatelno esli ostanovka tut
+	case '100':
+		console.log('Neverno');
+		break;
+	case ('50'):
+		console.log('V tochku');
+		break;
+	default:
+		console.log('Ne v etot raz');
+		break;
+}
+
