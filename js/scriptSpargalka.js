@@ -226,4 +226,107 @@ switch (num2) {
 		console.log('Ne v etot raz');
 		break;
 }
+//urok 21   ///logicheskie operatory
+//
+const hamburger = true;
+const fries = true;
+if (hamburger && fries) {
+	console.log('i am syt');
+}
+
+
+if ((hamburger && fries))//                              poluchenie boolevih znacheniy YTUE or FALSE
+{
+	console.log("ya syt");
+}
+console.log((hamburger && fries));
+
+
+//////////////////////////////////////////////           0; ; NaN; undefined = FALSE!!!
+
+const hamburger = 2;
+const fries = 1;
+const cola = 0;
+
+console.log(hamburger === 3 && cola === 1 && fries);
+
+if (hamburger === 3 && cola === 1 && fries) {
+	console.log('Vse syty');
+}
+else { console.log('Uhodim'); }
+//
+console.log(1 && 0); // budet nol (perviy nepravdiviy (FALSE))
+console.log(1 && 5); // poluchaem true (no vozvrashaem prosto poslednee znachenie)
+console.log(null && 5); // I vozvrashaet pervuu nepravdu
+
+
+const hamburger = 3;
+const fries = 3;
+const cola = 0;
+const naggets = 2;
+if (hamburger === 3 && cola === 2 || fries === 3 && naggets) {     //// ILI vozvrashaet pervoe lzhivoe znachenie
+	console.log('Vse dovolny');
+}
+else {
+	console.log("Mi uhodim");
+}
+console.log(hamburger === 3 && cola === 2 || fries === 3 && naggets);   ///vernet cifru 2 tak kak operator ili vozvrashaet pervuy pravdu!!!
+
+
+let johnReport, alexReport, samReport, mariaReport = "done";
+console.log(johnReport || alexReport || samReport || mariaReport);
+console.log(NaN || 2 || undefined);
+console.log(NaN && 2 && undefined);
+console.log(1 && 2 && 3);
+console.log(!1 && 2 || !3);
+console.log(25 || null && !3);
+console.log(NaN || null || !3 || undefined || 5);
+console.log(NaN || null && !3 && undefined || 5);
+console.log(5 === 5 && 3 > 1 || 5);
+console.log(!3);
+
+/// Urok 22 - Cikly
+
+// cikl nomer 1
+let num = 50;
+while (num <= 55) {
+	console.log(num);
+	num++;
+}
+
+//cikl nomer 2
+let num = 50;
+do {
+	console.log(num);
+	num++;
+}
+while (num <= 55);
+
+//Cikl nomer 3
+for (let i = 1; i < 8; i++) {
+	console.log(i);
+}
+
+
+let num = 50;
+for (let i = 1; i < 8; i++) {
+	console.log(num);
+	num++;
+}
+
+for (let i = 1; i < 10; i++) {
+	if (i == 6) {
+		break;                        ///BREAK ostanavlivaet cikl
+	}
+	console.log(i);
+}
+
+for (let i = 1; i < 10; i++) {
+	if (i == 6) {
+		continue;                        ///Continue propuskaet 1 cikl
+	}
+	console.log(i);
+}
+
+//Urok 23 
 
