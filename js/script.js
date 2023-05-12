@@ -2,7 +2,16 @@
 /* eslint-disable quotes */
 "use strict";
 
-const numberOfFilms = +prompt("Skolko filmov vi uzhe prosmotreli?", "");
+let numberOfFilms;
+function start() {
+    numberOfFilms = +prompt("Skolko filmov vi uzhe prosmotreli?", "");
+    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+        numberOfFilms = +prompt("Skolko filmov vi uzhe prosmotreli?", "");
+
+    }
+}
+start();
+
 const personalMovieDB = {
     count: numberOfFilms,
     movies: {},
@@ -11,29 +20,56 @@ const personalMovieDB = {
     privat: false,
 };
 
-for (let i = 0; i < 2; i++) {
-    const a = prompt("Odin iz poslednih prosmotrennih filmov?", ""),
-        b = prompt("Na skolko vi ocenite ego?", "");
-    if (a != null && (b != null) & (a != "") && b != "" && a.length < 50) {
-        personalMovieDB.movies[a] = b;
+function rememberMyFilms() {
+    for (let i = 0; i < 2; i++) {
+        const a = prompt("Odin iz poslednih prosmotrennih filmov?", ""),
+            b = prompt("Na skolko vi ocenite ego?", "");
+        if (a != null && (b != null) & (a != "") && b != "" && a.length < 50) {
+            personalMovieDB.movies[a] = b;
+        }
+        else {
+            console.log('error');
+            i--;
+        }
+    }
+}
+rememberMyFilms();
+
+function detectPersonalLevel() {
+    if (personalMovieDB.count <= 10) {
+        console.log('Prosmotreno malofilmov');
+    }
+    else if (personalMovieDB.count >= 10 && personalMovieDB <= 30) {
+        console.log('Vi klassicheskiy zritel');
+    } else if (personalMovieDB.count >= 30) {
+        console.log('vi kinoman');
     }
     else {
-        console.log('error');
-        i--;
+        console.log('Error!');
     }
 }
 
-if (personalMovieDB.count <= 10) {
-    console.log('Prosmotreno malofilmov');
-}
-else if (personalMovieDB.count >= 10 && personalMovieDB <= 30) {
-    console.log('Vi klassicheskiy zritel');
-} else if (personalMovieDB.count >= 30) {
-    console.log('vi kinoman');
-}
-else {
-    console.log('Error!');
+detectPersonalLevel();
+function showMyDB() {
+    if (personalMovieDB.privat == false) {
+        console.log(personalMovieDB);
+    }
 }
 
+showMyDB();
+//ILI:
 
-console.log(personalMovieDB);
+//detectPersonalLevel();
+//function showMyDB(hidden) {
+//    if (!hidden) {
+//       console.log(personalMovieDB);
+//   }
+//}
+//showMyDB(personalMovieDB.privat);
+
+function writeYourGenres() {
+    for (let i = 1; i <= 3; i++) {
+        personalMovieDB.genres[i - 1] = prompt(`Vash lubimyy zhanr pod nomerom ${i}`);
+    }
+}
+writeYourGenres();
