@@ -344,6 +344,137 @@ first: for (let i = 0; i < 3; i++) {				// METKA ITERACII
 		}
 	}
 }
+
+// Место для первой задачи
+function firstTask() {
+	for (let i = 5; i <= 10; i++) {
+		console.log(i);
+	}
+}
+firstTask();
+
+// Место для второй задачи
+function secondTask() {
+	for (let i = 20; i >= 10; i--) {
+
+		if (i == 13) {
+			break;
+		}
+		console.log(i);
+	}
+}
+secondTask();
+
+// Место для третьей задачи
+function thirdTask() {
+	for (let i = 2; i <= 10; i++) {
+		if (i % 2 == 0) {
+			console.log(i);
+		}
+	}
+}
+thirdTask();
+
+// Место для четвертой задачи
+function fourthTask() {
+	let i = 2;
+	while (i < 16) {
+		i++;
+		if (i % 2 === 0) {
+			continue;
+		} else {
+			console.log(i);
+		}
+	}
+}
+fourthTask();
+
+// Место для пятой задачи
+
+function fifthTask() {
+	const arrayOfNumbers = [];
+	for (let i = 5; i <= 10; i++) {
+		arrayOfNumbers[i - 5] = i;
+	}
+	// Не трогаем
+	return arrayOfNumbers;
+}
+fifthTask();
+
+
+function firstTask() {
+	// Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+	const arr = [3, 5, 8, 16, 20, 23, 50];
+	const result = [];
+
+	// Пишем решение вот тут
+	for (let i = 0; i < (arr.length); i++) {
+		result[i] = (arr[i]);
+		console.log(result[i]);
+	}
+	// Не трогаем
+	return result;
+}
+firstTask();
+
+// Место для второй задачи
+function secondTask() {
+	// Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+	const data = [5, 10, 'Shopping', 20, 'Homework'];
+
+	// Пишем решение вот тут
+	for (let i = 0; i < (data.length); i++) {
+		if (typeof data[i] === 'number') {
+			data[i] = +(data[i] * 2);
+		}
+		else {
+			data[i] = (data[i] + (' - done'));
+		}
+	}
+	console.log(data);
+	// Не трогаем
+	//return data;
+}
+secondTask();
+
+
+
+// Место для третьей задачи
+function thirdTask() {
+	// Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+	const data = [5, 10, 'Shopping', 20, 'Homework'];
+	const result = [];
+	let x = 0;
+	// Пишем решение вот тут
+	for (let i = data.length - 1; i >= 0; i--) {
+		result[x] = data[i];
+		x++;
+	}
+	console.log(result);
+	//Не трогаемx
+	//return result;
+}
+thirdTask();
+
+/*
+*
+**
+***
+****
+*****
+******
+*/
+let result = '';
+const length = 7;
+for (let i = 1; i < length; i++) {
+	for (let j = 0; j < i; j++) {
+		result += '*';
+	}
+	result += "\n"
+}
+console.log(result);
+
+
 //Urok 24 PRAKTIKA
 /* eslint-disable indent */
 /* eslint-disable quotes */
@@ -520,7 +651,7 @@ console.log(parseInt(test));		//nahodit chislo i vozvrashaet celoe chislo
 console.log(parseFloat(test));		//Vozvrashaet chislo v desatichnom formate i s plavaushey zapyatoi
 
 
-									//Urok 29 PRAKTIKA FUNKCII!!!
+//Urok 29 PRAKTIKA FUNKCII!!!
 /*
 "use strict";
 
@@ -572,6 +703,7 @@ function detectPersonalLevel() {
 }
 
 detectPersonalLevel();
+
 function showMyDB() {
 	if (personalMovieDB.privat == false) {
 		console.log(personalMovieDB);
@@ -579,6 +711,7 @@ function showMyDB() {
 }
 
 showMyDB();
+
 //ILI:
 
 //detectPersonalLevel();
@@ -597,4 +730,40 @@ function writeYourGenres() {
 writeYourGenres();
 */
 //Lesson 30
-//SDELAY VSE PRAKTICHESKIE ZADACHI!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+// Место для первой задачи
+function sayHello(text) {
+	return ("Привет, " + text + "!");
+}
+
+
+
+// Место для второй задачи
+function returnNeighboringNumbers(someSheet) {
+	let arr = [];
+	arr[0] = (+(someSheet) - 1);
+	arr[1] = (+(someSheet));
+	arr[2] = (+(someSheet) + 1)
+	return (arr);
+}
+
+
+// Место для третьей задачи
+function getMathResult(firstSheet, secondSheet) {
+	let result = '' + firstSheet;
+	let KOSTIL = firstSheet;
+
+	if (typeof (secondSheet) !== 'number' || secondSheet <= 0) {
+		return firstSheet;
+
+	}
+
+	for (let i = 1; i < secondSheet; i++) {
+		KOSTIL += firstSheet;
+		result = result + '---' + KOSTIL;
+	}
+	return result;
+}
+getMathResult(10, -5);
