@@ -757,7 +757,6 @@ function getMathResult(firstSheet, secondSheet) {
 
 	if (typeof (secondSheet) !== 'number' || secondSheet <= 0) {
 		return firstSheet;
-
 	}
 
 	for (let i = 1; i < secondSheet; i++) {
@@ -767,3 +766,59 @@ function getMathResult(firstSheet, secondSheet) {
 	return result;
 }
 getMathResult(10, -5);
+
+
+
+
+// Место для первой задачи
+function calculateVolumeAndArea() {
+
+}
+
+// lection 29 praktic
+//  obem kuba V = a3       ploshad kuba S = 6a2
+// Место для первой задачи // (`Hello, ${user}`);  'Объем куба: 125, площадь всей поверхности: 150'
+function calculateVolumeAndArea(a) {
+	if (String(a).includes('.') || (typeof a === 'string') || (a <= 0)) {
+		console.log('При вычислении произошла ошибка');
+	}
+	else {
+		console.log(`Объем куба: ${(a * a * a)}, площадь всей поверхности: ${6 * (a * a)}`);
+	}
+}
+calculateVolumeAndArea(-5);
+
+
+// Место для второй задачи
+function getCoupeNumber(n) {
+	let cup = 0;
+	if (n === 0 || n > 36) {
+		console.log('Таких мест в вагоне не существует');
+	}
+	else if (n < 0 || String(n).includes('.') || (typeof n === 'string')) {
+		console.log("Ошибка. Проверьте правильность введенного номера места")
+	}
+	else {
+		for (let i = 1; i <= n; i += 4) {
+			cup++;
+		}
+		console.log(cup);
+	}
+}
+
+getCoupeNumber(7.7);
+
+/*
+1) Создайте функцию, которая принимает в себя целое число минут и возвращает время в нужном формате строки.
+(Смотри пример). Обратите внимание на окончание слова "час" - оно меняется в зависимости от цифры. Если вместо аргумента приходит не число,
+дробное или отрицательное число - функция возвращает строку "Ошибка, проверьте данные"
+Внимание! Давайте пока ограничимся максимум 600ю минутами (10 часов).
+Так как проверки на большие числа будут раздувать код (33 часа, 31 час, 11 часов и тд).
+Этого будет достаточно и код будет проверять именно этот промежуток (1 - 10 часов).
+Но вы можете реализовать и полный скрипт, он тоже должен проходить тесты.
+Пример:
+getTimeFromMinutes(150) => "Это 2 часа и 30 минут"
+getTimeFromMinutes(50) => "Это 0 часов и 50 минут"
+getTimeFromMinutes(0) => "Это 0 часов и 0 минут"
+getTimeFromMinutes(-150) => "Ошибка, проверьте данные"
+*/
