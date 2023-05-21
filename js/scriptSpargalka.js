@@ -100,7 +100,7 @@ console.log(typeof (answers));
 												//urok 14 //interpolyaciya ``
 const category = 'toys';
 //console.log('https://someurl.com' + category);
-console.log (`https://someurl.com/${category}/5`); //tut interpolyaciya
+console.log (`https://someurl.com/${category}/5`); //tut Конкатенация
 */
 const user = 'Ivan';
 
@@ -822,3 +822,105 @@ getTimeFromMinutes(50) => "Это 0 часов и 50 минут"
 getTimeFromMinutes(0) => "Это 0 часов и 0 минут"
 getTimeFromMinutes(-150) => "Ошибка, проверьте данные"
 */
+
+// Место для первой задачи
+function getTimeFromMinutes(x) {
+	let h = Math.floor(x / 60), m = x % 60;
+	let hh = 'час';
+	let mm = 'мину';
+	if (x < 0 || String(x).includes('.') || (typeof x === 'string')) {
+		console.log("Ошибка, проверьте данные");
+		return;
+	}
+	else {
+		if (h >= 2 && h <= 4) {
+			hh = hh.concat('а');
+		}
+		else if (h >= 5 && h <= 10 || h === 0) {
+			hh = hh.concat('ов');
+		}
+
+		if (m < 10) {
+			if (m == 1) {
+				mm = mm.concat('та');
+			}
+			else if (m >= 2 && m <= 4) {
+				mm = mm.concat('ты');
+			}
+			else {
+				mm = mm.concat('т');
+			}
+		}
+		if (m >= 20) {
+			if ((String(m)[1]) == 1) {
+				mm = mm.concat('та');
+			}
+			else if ((String(m)[1]) >= 2 && (String(m)[1] <= 4)) {
+				mm = mm.concat('ты');
+			}
+			else {
+				mm = mm.concat('т');
+			}
+		}
+
+		else if (m >= 10 && m <= 20) {
+			mm = mm.concat('т');
+		}
+	}
+	console.log(`Это ${h} ${hh} и ${m} ${mm}`);
+}
+getTimeFromMinutes(5.2);
+
+/*2) Напишите функцию, которая принимает в себя 4 числа и возвращает самое большее из них.
+Если один из аргументов не является числом или их меньше 4 - возвращается 0. Дробные числа разрешены.
+Пример:
+findMaxNumber(1, 5, 6.6, 11); =>  11
+findMaxNumber(1, 5, '6', '10');  =>  0*/
+// Место для второй задачи
+
+function findMaxNumber(a, b, c, d) {
+	// Самое простое - это использовать Math.max :)
+	// А оптимизировать такую проверку мы научимся совсем скоро
+	if (typeof (a) !== 'number' ||
+		typeof (b) !== 'number' ||
+		typeof (c) !== 'number' ||
+		typeof (d) !== 'number') {
+		return 0;
+	} else {
+		return Math.max(a, b, c, d);
+	}
+}
+
+findMaxNumber(1, 5, 6.6, 10.5);
+
+/*Задача:
+Скорее всего вы слышали про числа Фибоначчи, где первые два числа равны 0 и 1, а каждое последующее число равно сумме двух предыдущих чисел.
+Создайте функцию, которая будет принимать в себя один аргумент-целое положительное число. Она должна возвращать строку,
+в которой будут через пробел выведены числа Фибоначчи. Причем, их количество должно быть равно переданному аргументу.
+Если переданный аргумент не число - вернуть пустую строку. Решать без применения рекурсии.
+Пример:
+fib(4) => ''0 1 1 2"
+fib(7) => ''0 1 1 2 3 5 8"
+fib('7') => ''"
+fib(1) => "0"
+fib(0) => ''"*/
+
+function fib(x) {
+	let res = '0 1', a = 0, b = 1, c = 0;
+	if (x == 1) {
+		console.log("0");
+	}
+	else if (x == 0 || String(x).includes('.') || typeof x !== 'number') {
+		console.log("");
+	}
+	else {
+		for (let i = 0; i < x - 2; i++) {
+			c = a + b;
+			a = b;
+			b = c;
+			res = res.concat(' ' + c);
+		}
+		console.log(res);
+	}
+}
+fib(7.7);
