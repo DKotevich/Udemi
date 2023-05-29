@@ -924,3 +924,67 @@ function fib(x) {
 	}
 }
 fib(7.7);
+
+//lesson 30 metod dlya strok TRiM
+const a = prompt("Odin iz poslednih prosmotrennih filmov?", "").trim(),
+
+//lesson 31 CALLBACK
+
+function first() {
+	setTimeout(function () {
+		console.log(1);
+	}, 500);
+}
+function second() {
+	console.log(2);
+}
+first();
+second();
+
+function learnJS(lang, callback) {
+	console.log(`Ya uchu: ${lang}`);
+	callback();
+}
+function done() {
+	console.log('ya proshel etot urok');
+}
+learnJS('JavaSkript', done);
+//done peredaetsa vmesto callbacka i srabativaet tolko posle togo kak budet vizvana vnutri v kallbacke
+
+
+//lesson 32 metody obrktov
+//const obj = new Object();
+const options = {
+	name: 'test',
+	width: 1024,
+	height: 1024,
+	colors: {
+		border: 'black',
+		bg: "red"
+	},
+	makeTest: function () {//metody
+		console.log('Test');
+	}
+};
+options.makeTest();
+
+console.log(options['colors']['border']);
+//delete options.name;
+console.log(options);
+
+for (let key in options) {
+	if (typeof (options[key]) === 'object') {
+		for (let i in options[key]) {
+			console.log(`Svoistvo ${i} imeet znachenie: ${options[key][i]}`);
+		}
+	}
+	else {
+		console.log(`Svoistvo ${key} imeet znachenie: ${options[key]}`);
+	}
+}// Key eto nazvaniya kluchey
+console.log(Object.keys(options).length);
+console.log(Object.keys(options).length);
+//destrukturizaciya
+const { border, bg } = options.colors;
+console.log(border);
+//lesson 33 massivy i psevdomassivy
