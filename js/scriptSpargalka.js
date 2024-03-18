@@ -952,7 +952,7 @@ learnJS('JavaSkript', done);
 //done peredaetsa vmesto callbacka i srabativaet tolko posle togo kak budet vizvana vnutri v kallbacke
 
 
-//lesson 32 metody obrktov
+//lesson 32 metody obektov
 //const obj = new Object();
 const options = {
 	name: 'test',
@@ -982,9 +982,139 @@ for (let key in options) {
 		console.log(`Svoistvo ${key} imeet znachenie: ${options[key]}`);
 	}
 }// Key eto nazvaniya kluchey
+
 console.log(Object.keys(options).length);
 console.log(Object.keys(options).length);
 //destrukturizaciya
 const { border, bg } = options.colors;
 console.log(border);
-//lesson 33 massivy i psevdomassivy
+
+
+//lesson 33 massivy i psevdomassivy i ih metody
+const arr = [1, 2, 3, 6, 8];
+arr.pop();//udalenie poslrdnego elementa
+arr.push(10);// dobavlenie v konec masiva
+arr.shift(4);//dobavit v nachalo massiva
+console.log(arr);
+for (let i = 0; i < arr.length; i++) {//perebor massiva
+	console.log(arr[i]);
+}
+for (let value of arr) {
+	console.log(value);
+}
+console.log(arr.length);//(prosto pribavlaet k gslednemu indexu 1)
+arr[99] = 0;
+console.log(arr);
+//samiy popularniy metod massivov
+arr.forEach(function (item, i, arr) {
+	console.log(`${i}: ${item} vnutri massiva ${arr}`);
+});//perebor massiva(gjmeshayet v sebya callback funkciu(v duzhkah nazvanie dlya perebora indexov, tut sohranyaem znachenie, tut nazvanie masssiva))
+
+//metod massivov split
+const str = prompt(', ');
+const products = str.split(', '); //iz stroki - poluchaem massiv
+console.log(products.join('; ')); //iz massiva - poluchaem stroku
+
+//sortirovka massia iz chisel
+const arr = [1, 12, 3, 61, 8];
+arr.sort(compareNum);
+console.log(arr);
+function compareNum(a, b) {
+	return a - b;
+}
+
+//psevdomassivy(obekt bez metodov)
+//lesson 35 Передача по ссылке или по значению, Spread оператор
+let a = 5,
+	b = a;
+b = b + 5;
+console.log(b);
+
+const obj = {
+	a: 5,
+	b: 1
+};
+const copy = obj; //izmenilas informaciya po ssilke i samo znachenie!!!!! PEREDACHA PO SSILKE
+copy.a = 10;
+console.log(copy);
+console.log(obj);
+
+
+function copy(mainObj) {
+	let objCopy = {};
+	let key;
+	for (key in mainObj) {
+		objCopy[key] = mainObj[key];
+	}
+	return objCopy;
+}
+const numbers = {
+	a: 2,
+	b: 5,
+	c: {
+		x: 7,
+		y: 4
+	}
+};
+const newNumbers = copy(numbers);
+newNumbers.a = 10;
+console.log(newNumbers);
+console.log(numbers);
+
+//vtoroy sposob skopirovat object (Object.assign) !!!!!!!!!!!!!
+const add = {
+	d: 17,
+	e: 20
+};
+const clone = Object.assign({}, add);
+clone.d = 20;
+
+console.log(Object.assign(numbers, add));
+
+const oldArray = ['a', 'b', 'c'];
+const newArray = oldArray.slice();//metod kopirovaniya massiva
+newArray[1] = 'gugu';
+console.log(newArray);
+console.log(oldArray);
+
+//operator razvorota(spred)
+const video = ['youtube', 'video', 'rutube'],
+	blogs = ['wordpress', 'livejornal', 'blogger'],
+	internet = [...video, ...blogs, 'vk', 'facebook'];//spred razvernul vse vnutrennie elementy v odin
+console.log(internet);
+
+function log(a, b, c) {
+	console.log(a);
+	console.log(b);
+	console.log(c);
+}
+const num = [2, 5, 7]
+log(...num)
+
+
+// copirovanie obekta s pomoshu SPRED
+const q = {
+	one: 1,
+	two: 2
+};
+const newObj = { ...q };
+console.log(q);
+
+//lesson 35 exersize
+const personalPlanPeter = {
+	name: "Peter",
+	age: "29",
+	skills: {
+		languages: ['ru', 'eng'],
+		programmingLangs: {
+			js: '20%',
+			php: '10%'
+		},
+		exp: '1 month'
+	}
+};
+
+function showExperience(plan) {
+	console.log(personalPlanPeter['skills']['exp'])
+}
+showExperience();

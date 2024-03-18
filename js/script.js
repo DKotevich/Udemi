@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 /* eslint-disable quotes */
 "use strict";
-
+/*
 let numberOfFilms;
 function start() {
     numberOfFilms = +prompt("Skolko filmov vi uzhe prosmotreli?", "");
@@ -72,4 +72,10 @@ function writeYourGenres() {
         personalMovieDB.genres[i - 1] = prompt(`Vash lubimyy zhanr pod nomerom ${i}`);
     }
 }
-writeYourGenres();
+writeYourGenres();*/
+
+//metod massivov split
+const str = prompt(', ');
+const products = str.split(', '); //iz stroki - poluchaem massiv
+products.sort();//sortirovka massiva (kak stroku)
+console.log(products.join('; ')); //iz massiva - poluchaem stroku
