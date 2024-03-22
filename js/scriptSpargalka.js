@@ -475,6 +475,32 @@ for (let i = 1; i < length; i++) {
 console.log(result);
 
 
+// ELKA!!!
+const lines = 6;
+let result = '';
+let counter = lines;
+// Проверяется именно переменная result, формируйте строку в ней
+
+for (let i = 0; i < lines; i++) {
+    
+    for (let k = 1; k < counter; k++){
+        result += ' ';
+    }
+    counter --;
+    
+    for (let j = 0; j < 2 * i + 1 ; j++) {
+        result += '*';
+    }
+    result += "\n"
+}
+console.log(result);
+     *
+    ***
+   *****
+  *******
+ *********
+***********
+	     
 //Urok 24 PRAKTIKA
 /* eslint-disable indent */
 /* eslint-disable quotes */
