@@ -162,3 +162,86 @@ function getCoupeNumber(x) {
     }
 }
 getCoupeNumber(30)
+
+
+// Место для первой задачи
+function getTimeFromMinutes(x) {
+    let h = Math.floor(x / 60), m = x % 60, hh = 'час', mm = 'мину'
+    if (x < 0 || String(x).includes('.') || (typeof x === 'string')) {
+        console.log("Ошибка, проверьте данные");
+    }
+    else {
+        if (h >= 2 && h <= 4) {
+            hh = hh.concat('а');
+        }
+        else if (h >= 5 && h <= 10 || h === 0) {
+            hh = hh.concat('ов');
+        }
+
+        if (m < 10) {
+            if (m == 1) {
+                mm = mm.concat('та');
+            }
+            else if (m >= 2 && m <= 4) {
+                mm = mm.concat('ты');
+            }
+            else {
+                mm = mm.concat('т');
+            }
+        }
+        if (m >= 20) {
+            if ((String(m)[1]) == 1) {
+                mm = mm.concat('та');
+            }
+            else if ((String(m)[1]) >= 2 && (String(m)[1] <= 4)) {
+                mm = mm.concat('ты');
+            }
+            else {
+                mm = mm.concat('т');
+            }
+        }
+        else if (m >= 10 && m <= 20) {
+            mm = mm.concat('т');
+        }
+    }
+    console.log(`Это ${h} ${hh} и ${m} ${mm}`);
+}
+getTimeFromMinutes(131)
+
+
+function findMaxNumber(a, b, c, d) {
+    // Самое простое - это использовать Math.max :)
+    // А оптимизировать такую проверку мы научимся совсем скоро
+    if (typeof (a) !== 'number' ||
+        typeof (b) !== 'number' ||
+        typeof (c) !== 'number' ||
+        typeof (d) !== 'number') {
+        return 0;
+    } else {
+        return Math.max(a, b, c, d);
+    }
+}
+
+findMaxNumber(1, 5, 6.6, 10.5);
+
+
+function fib(x) {
+    let y = 0;
+    let res = [0, 1, 1];
+    let res2 = "";
+    if (x == 1) {
+        return ("0");
+    }
+    else if (x == 0 || String(x).includes('.') || typeof x !== 'number') {
+        return ("");
+    }
+    else {
+        for (let i = 0; i <= x - 4; i++) {
+            y = ((res[i + 1]) + (res[i + 2]))
+            res[i + 3] = y;
+        }
+        res2 = res.join(" ").replace(/,/g, "");
+        return (String(res2))
+    }
+}
+fib(7)

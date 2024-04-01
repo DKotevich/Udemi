@@ -99,7 +99,6 @@ function getTimeFromMinutes(x) {
 				mm = mm.concat('т');
 			}
 		}
-
 		else if (m >= 10 && m <= 20) {
 			mm = mm.concat('т');
 		}
@@ -123,3 +122,22 @@ function findMaxNumber(a, b, c, d) {
 
 findMaxNumber(1, 5, 6.6, 10.5);
 
+
+function fib(x) {
+	let res = '0 1', a = 0, b = 1, c = 0;
+	if (x == 1) {
+		return ("0");
+	}
+	else if (x == 0 || String(x).includes('.') || typeof x !== 'number') {
+		return ("");
+	}
+	else {
+		for (let i = 0; i < x - 2; i++) {
+			c = a + b;
+			a = b;
+			b = c;
+			res = res.concat(' ' + c);
+		}
+		return (res);
+	}
+}
