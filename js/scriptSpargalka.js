@@ -159,7 +159,8 @@ console.log(isChecked1 || isClose1); // i
 //admin@MacBook-Air-Admin Udemy %git clone https://github.com/DKotevich/Udemi.git project 2 //kloniruyu papku s gita na rabochiy komp v papku project 2
 //
 // admin@MacBook-Air-Admin Udemy % git pull  //ctob poluchit svezhuu versiu failov nuzhno na novom compe vipolnit git pull
-// merge eto sliyanie dvuh versiy
+// merge eto sliyanie dvuh vers
+iy
 //
 //git ignore faily kotorie ne pushatsa
 //
