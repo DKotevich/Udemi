@@ -12,7 +12,7 @@ for (let i = 1; i < length; i++) {
     result += '\n';
 }
 console.log(result);
-//Metki
+// Metki
 let str = '';
 
 loop1: for (let i = 0; i < 5; i++) {
@@ -54,7 +54,7 @@ while (i < 16) {
         console.log(i);
     }
 }
-//5 
+// 5 
 let array = [];
 for (i = 5; i <= 10; i++) {
     array[i - 5] = i;
@@ -70,7 +70,7 @@ for (i = 0; i < arr.length; i++) {
 }
 console.log(result);
 
-//2
+// 2
 const data = [5, 10, 'Shopping', 20, 'Homework'];
 for (let i = 0; i < (data.length); i++) {
     if (typeof data[i] === 'number') {
@@ -81,7 +81,7 @@ for (let i = 0; i < (data.length); i++) {
     }
 }
 console.log(data);
-//elka
+// Elka
 const lines = 6;
 let result = '';
 let counter = lines;
@@ -246,7 +246,7 @@ function fib(x) {
 }
 fib(7)
 
-///DESTRUKTURIZACYA OBEKTOV
+// DESTRUKTURIZACYA OBEKTOV
 const personalPlanPeter = {
     name: "Peter",
     age: "29",
@@ -258,6 +258,7 @@ const personalPlanPeter = {
         },
         exp: '3 month'
     },
+
     showAgeAndLangs: function (plan) {
         const { age } = plan;
         const { languages } = plan.skills;
@@ -285,3 +286,123 @@ function showProgrammingLangs(plan) {
     }
     return str;
 }
+
+
+// Zadachi na rabotu s massivami
+
+// showFamily(family)  => 'Семья состоит из: Peter Ann Alex Linda'
+const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+
+function showFamily(arr) {
+    let output = "Семья состоит из: ";
+    if (!arr.length) {
+        return ('Семья пуста');
+    }
+    else {
+        output += (String(family)).replace(/,/g, " ");
+        return (output);
+    }
+}
+
+
+const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+function standardizeStrings(arr) {
+    let out = "";
+    for (let i = 0; i < favoriteCities.length; i++) {
+        out += `${String(favoriteCities[i]).toLowerCase()}\n`;
+    }
+    console.log(out);
+}
+standardizeStrings(favoriteCities)
+
+
+const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+function standardizeStrings(arr) {
+    arr.forEach(city => {
+        console.log(city.toLowerCase())
+    })
+}
+
+standardizeStrings(favoriteCities);
+
+// Primery
+// перебор массива
+const arr = [2, 3, 6, 8, 10];
+arr.forEach(function (item, i, arr) {
+    console.log(`${i}: ${item} внутри массива ${arr}`);
+});
+
+
+const str = prompt("", "");
+const products = str.split(", "); //запишет в массив то что вводилось строкой
+arr.sort(compareNum);//sortiruet
+console.log(products.join('; ')); //обратно склеял массив через точку с запятой
+
+function compareNum(a, b) {//Pravilnaya sortirovka (sortiruet ne kak stroki)
+    return a - b;
+}
+
+
+// Zadachi:
+
+const someString = 'This is some strange string';
+function reverse(str) {
+    if (typeof (str) !== 'string') {
+        return "Ошибка!";
+    }
+    let srtToArray = str.split("").reverse();
+    return (srtToArray.join(""));
+}
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+
+function availableCurr(arr, missingCurr) {
+    let result = "Доступные валюты:\n";
+    if (!arr.length) {
+        result += 'Нет доступных валют';
+    }
+    else {
+        if (arr.indexOf(missingCurr,) === -1) {
+            result += arr.join('\n')
+        }
+        else {
+            arr.splice((arr.indexOf(missingCurr)), 1);
+            result += arr.join('\n')
+        }
+    }
+    return (result);
+}
+
+
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+
+function availableCurr(arr, missingCurr) {
+    let str = '';
+    arr.length === 0 ? str = 'Нет доступных валют' : str = 'Доступные валюты:\n';
+
+    arr.forEach(function (curr, i) {
+        if (curr !== missingCurr) {
+            str += `${curr}\n`;
+        }
+    });
+
+    // Или
+    // for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i] === missingCurr) {
+    //         continue;
+    //     }
+    //     str += `${arr[i]}\n`;
+    // }
+
+    return str;
+}
+
+availableCurr([...baseCurrencies, ...additionalCurrencies], 'CNY')
+
+
+console.log(typeof (+'4'));
