@@ -336,13 +336,20 @@ arr.forEach(function (item, i, arr) {
 
 
 const str = prompt("", "");
-const products = str.split(", "); //запишет в массив то что вводилось строкой
-arr.sort(compareNum);//sortiruet
+const products = str.split(", "); // запишет в массив то что вводилось строкой
+arr.sort(compareNum);  // sortiruet kak chisla !!!
 console.log(products.join('; ')); //обратно склеял массив через точку с запятой
 
-function compareNum(a, b) {//Pravilnaya sortirovka (sortiruet ne kak stroki)
+function compareNum(a, b) { // Pravilnaya sortirovka (sortiruet ne kak stroki)
     return a - b;
 }
+
+//Perebor
+
+const arr = [12, 3, 6, 8, 10];
+arr.forEach(function (item, i, arr) {
+    console.log(`${i}: ${item} внутри массива ${arr}`);
+});
 
 
 // Zadachi:
@@ -401,8 +408,127 @@ function availableCurr(arr, missingCurr) {
 
     return str;
 }
-
 availableCurr([...baseCurrencies, ...additionalCurrencies], 'CNY')
-
-
 console.log(typeof (+'4'));
+
+
+
+
+const shoppingMallData = {
+    shops: [
+        {
+            width: 10,
+            length: 5
+        },
+        {
+            width: 15,
+            length: 7
+        },
+        {
+            width: 20,
+            length: 5
+        },
+        {
+            width: 8,
+            length: 10
+        }
+    ],
+    height: 5,
+    moneyPer1m3: 30,
+    budget: 50000
+}
+
+function isBudgetEnough(data) {
+    let result = 0;
+    for (let i = 0; i < shoppingMallData.shops.length; i++) {
+        result += shoppingMallData.shops[i].width * shoppingMallData.shops[i].length
+        //console.log (shoppingMallData.shops[i]);
+    }
+    result = result * shoppingMallData.height * shoppingMallData.moneyPer1m3;
+    if (result <= shoppingMallData.budget) {
+        console.log("Бюджета достаточно");
+    }
+    else {
+        console.log("Бюджета недостаточно");
+    }
+    console.log(result);
+}
+isBudgetEnough();
+
+
+const shoppingMallData = {
+    shops: [
+        {
+            width: 10,
+            length: 5
+        },
+        {
+            width: 15,
+            length: 7
+        },
+        {
+            width: 20,
+            length: 5
+        },
+        {
+            width: 8,
+            length: 10
+        }
+    ],
+    height: 5,
+    moneyPer1m3: 30,
+    budget: 50000
+}
+
+function isBudgetEnough(data) {
+    let square = 0;
+    let volume = 0;
+
+    data.shops.forEach(shop => {
+        square += shop.width * shop.length;
+    });
+
+    volume = data.height * square;
+
+    if (data.budget - (volume * data.moneyPer1m3) >= 0) {
+        return 'Бюджета достаточно';
+    } else {
+        return 'Бюджета недостаточно';
+    }
+}
+isBudgetEnough(shoppingMallData);
+
+
+//Тоже задачка
+
+const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam', 'Whit'];
+
+function sortStudentsByGroups(arr) {
+    arr.sort();
+    let output = [];
+    let kostil = [];
+    let loosers = '';
+    let count = 0;
+    let count2 = count;
+    if (arr.length % 3 == 1) {
+        loosers += `Оставшиеся студенты: ${arr[arr.length - 1]}`;
+    }
+    else if (arr.length % 3 == 2) {
+        loosers += `Оставшиеся студенты: ${arr[arr.length - 2]}, ${arr[arr.length - 1]}`;
+    }
+    for (let i = 0; i < arr.length / 3 - 1; i++) {
+        for (let j = 0; j < 3; j++) {
+            kostil.push(arr[count2]);///?????
+            count2++;
+        }
+        output.push(kostil);
+        kostil.splice(0, kostil.length);
+        ///output.push((arr[count]) + (arr[count + 1]) + (arr[count + 2]));
+        count += 3;
+    }
+    output.push(loosers);
+    //console.log(arr);
+    console.log(output);
+    //console.log[(loosers)];
+}
+sortStudentsByGroups(students);
