@@ -160,7 +160,6 @@ console.log(isChecked1 || isClose1); // i
 //
 // admin@MacBook-Air-Admin Udemy % git pull  //ctob poluchit svezhuu versiu failov nuzhno na novom compe vipolnit git pull
 // merge eto sliyanie dvuh vers
-iy
 //
 //git ignore faily kotorie ne pushatsa
 //
@@ -204,9 +203,13 @@ if (num < 49) {
 	console.log('Ok');
 }
 const numb = 50;
-//ternarniy operator
-(numb === 50) ? console.log('ok') : console.log('Error');
-//uslovie//T/O///v sluchae true////inache esli false
+// Тернарный оператор
+(numb === 50) ? console.log('ok') : console.log('Error');  // Проверка условия: если numb равно 50, выводим 'ok', иначе 'Error'
+
+// Условие
+// Тернарный оператор
+// В случае true
+// Иначе если false
 
 //konstrukciya swich (modifikaciya IF na neskolko usloviy)
 const num2 = '50';
@@ -658,7 +661,6 @@ console.log(str.length, arr.length);			//svoistvo .length
 console.log(str[2]);							//metod
 console.log(str.toUpperCase());
 console.log(str.toLowerCase());
-
 
 let fruit = "Some fruit";
 console.log(fruit.indexOf('fru'));			//poisk v stroke i prosto vozvrashaet
@@ -1159,18 +1161,20 @@ for (let i = 1; i < length; i++) {
 	result += '\n';
 }
 console.log(result);
-// Metki
-let str = '';
 
-loop1: for (let i = 0; i < 5; i++) {
-	if (i === 1) {
-		continue loop1;
+// Metki
+let str = '';  // Инициализация пустой строки
+
+loop1: for (let i = 0; i < 5; i++) {  // Метка loop1 для внешнего цикла, цикл for от 0 до 4
+	if (i === 1) {                   // Если значение переменной i равно 1
+		continue loop1;              // Переход к следующей итерации цикла loop1, пропуская оставшийся код в текущей итерации
 	}
-	str = str + i;
+	str = str + i;                   // Добавление текущего значения i к строке str
 }
 
-console.log(str);
-// Expected output: "0234"
+console.log(str);  // Вывод значения переменной str на консоль
+// Ожидаемый вывод: "0234"
+
 
 
 //ZADACHI CIKLY
@@ -1702,10 +1706,6 @@ function sortStudentsByGroups(arr) {
 
 sortStudentsByGroups(students);
 
-
-// пересмотри урок с коллбэк функцией и перепиши код задачи на фильмы!!!
-
-
 console.log(0 || 1);//1   или запинается на лжи
 console.log(0 && 1);//0   и запинается на правде
 
@@ -1759,6 +1759,348 @@ function transferWaitors(data) {
 }
 transferWaitors(restorantData);
 
-//poluchenie dokumrnta s stranicy
-const box = document - getElementById('box');
+// Получение элемента документа по ID
+const box = document.getElementById('box'); // По ID
 console.log(box);
+
+const btns = document.getElementsByTagName('button'); // По тегу
+console.log(btns[0]);
+
+const circles = document.getElementsByClassName('circle'); // По классу
+console.log(circles);
+
+const hearts = document.querySelectorAll('.heart'); // По CSS селектору
+hearts.forEach(item => { // Единственный метод, доступный только при 'document.querySelectorAll'
+	console.log(item);
+});
+
+// Другой способ объявления переменных
+const
+	box = document.getElementById('box'),
+	btns = document.getElementsByTagName('button'),
+	circles = document.getElementsByClassName('circle'),
+	hearts = document.querySelectorAll('.heart'),
+	oneHeart = document.querySelector('.heart');
+
+// Изменение стилей элементов
+box.style.backgroundColor = 'blue';
+box.style.width = '500px';
+box.style.cssText = 'background-color: blue; width: 500px';
+
+btns[1].style.borderRadius = '100%';
+
+circles[0].style.backgroundColor = 'red';
+
+// Цикл для каждого элемента
+hearts.forEach(item => {
+	item.style.backgroundColor = 'blue';
+});
+// Создание нового элемента в документе
+const div = document.createElement('div');
+// Стилизация элемента (ноды). Работа с CSS классами
+div.classList.add('black'); // Добавляем уже готовый класс из CSS
+// Добавляем элемент в HTML документ
+document.body.append(div);
+// или:
+document.querySelector('.wrapper').append(div); // В нужное место
+wrapper.append(div);
+wrapper.prepend(div);
+hearts[0].before(div);
+hearts[0].after(div);
+// Удаление элемента
+circles[0].remove();
+// Замена элементов
+hearts[0].replaceWith(circles[0]);
+// Вставка текста
+div.innerHTML = "Hello World";
+// или
+div.innerHTML = "<h1>Hello world</h1>";
+// или
+div.textContent = "Hello";
+// Вставка HTML фрагмента перед или после чего-то
+div.insertAdjacentHTML("afterbegin", '<h2>Hello</h2>');
+
+
+// Обработка событий !!!
+const btn = document.querySelector('button'); // Получение кнопки со страницы
+
+// Добавление обработчика события
+btn.addEventListener('click', () => { // Добавляем слушатель на событие 'click', выполняем функцию при клике
+	alert('Click'); // Показать сообщение 'Click'
+});
+
+btn.addEventListener('click', (e) => { // Добавление обработчика события, передаем событие (e) и удаляем кнопку
+	e.target.remove(); // Удаляем кнопку
+});
+
+// Обработчик события для отмены стандартного поведения
+link.addEventListener('click', function (event) { // Обработчик события 'click' для ссылки
+	event.preventDefault(); // Отмена стандартного поведения ссылки
+	console.log(event); // Вывод информации о событии в консоль
+});
+
+btns.forEach(btn => { // Если хотим назначить событие для нескольких элементов
+	btn.addEventListener('click', deleteElement); // Назначаем обработчик события 'click' для каждого элемента
+});
+
+//ssilki po sobitiyam;
+// https://developer.mozilla.org/ru/docs/Web/Events //Справочник по событиям
+//https://developer.mozilla.org/ru/docs/Web/API/EventTarget/addEventListener // Метод EventTarget.addEventListener()
+//https://developer.mozilla.org/ru/docs/Web/API/Event// Интерфейс Event представляет собой любое событие, которое происходит в DOM;
+
+//Putishestvie po DOM derevu:
+console.log(document.head); // Выводит в консоль элемент <head> документа.
+console.log(document.documentElement); // Выводит в консоль элемент <html> документа.
+console.log(document.body.childNodes); // Выводит в консоль список дочерних узлов элемента <body>.
+console.log(document.body.firstChild); // Выводит в консоль первый дочерний узел элемента <body>.
+console.log(document.body.firstElementChild); // Выводит в консоль первый дочерний элемент элемента <body>.
+console.log(document.body.lastChild); // Выводит в консоль последний дочерний узел элемента <body>.
+console.log(document.querySelector('#current').parentNode); // Выводит в консоль родительский узел элемента с id="current".
+console.log(document.querySelector('#current').parentElement); // Выводит в консоль родительский элемент элемента с id="current".
+console.log(document.querySelector('[data-current="3"]').nextElementSibling); // Выводит в консоль следующий элемент после элемента с атрибутом data-current="3".
+
+for (let node of document.body.childNodes) { // Перебирает все дочерние узлы элемента <body>.
+	if (node.nodeName == '#text') { // Проверяет, является ли узел текстовым узлом.
+		continue; // Пропускает текстовые узлы.
+	}
+	console.log(node); // Выводит в консоль каждый элемент (не текстовый узел) дочерний для элемента <body>.
+}
+
+
+//REKURSIYA Рекурсия !!!
+//Пример с возведением 2 в степень 3:
+function pow(x, n) {
+	if (n === 1) {
+		return (x);
+	} else {
+		return (x * pow(x, n - 1));
+	}
+}
+pow(2, 3);
+
+
+let students = {
+	js: [{                         // Массив студентов, изучающих JavaScript
+		name: 'John',
+		progress: 100
+	}, {
+		name: 'Ivan',
+		progress: 60
+	}],
+
+	html: {                        // Объект, содержащий курсы по HTML
+		basic: [{                  // Массив студентов, изучающих базовый HTML
+			name: 'Peter',
+			progress: 20
+		}, {
+			name: 'Ann',
+			progress: 18
+		}],
+		pro: [{                    // Массив студентов, изучающих продвинутый HTML
+			name: 'Sam',
+			progress: 10
+		}]
+	}
+};
+
+// Вычисляем средний прогресс всех студентов
+// Используем метод Object.values - возвращает массив значений перечисляемых свойств объекта
+// Пример с циклом:
+
+function getTotalProgressByIteration(data) {  // Функция для подсчета прогресса через итерацию
+	let total = 0;                            // Общий прогресс всех студентов
+	let students = 0;                         // Общее количество студентов
+	for (let course of Object.values(data)) { // Проходим по всем значениям в объекте data
+		if (Array.isArray(course)) {           // Проверяем, является ли значение массивом
+			students += course.length;         // Увеличиваем счетчик студентов
+			for (let i = 0; i < course.length; i++) { // Проходим по всем студентам в массиве
+				total += course[i].progress;   // Увеличиваем общий прогресс
+			}
+		} else {
+			for (let subCourse of Object.values(course)) { // Проходим по подкурсам
+				students += subCourse.length;    // Увеличиваем счетчик студентов
+				for (let i = 0; i < subCourse.length; i++) { // Проходим по студентам в подкурсах
+					total += subCourse[i].progress; // Увеличиваем общий прогресс
+				}
+			}
+		}
+	}
+	return total / students; // Возвращаем средний прогресс
+}
+console.log(getTotalProgressByIteration(students)); // Выводим средний прогресс
+
+// Пример с рекурсией
+function getTotalProgressByRecursion(data) {
+	if (Array.isArray(data)) {        // Проверяем, является ли значение массивом
+		let total = 0;                // Общий прогресс всех студентов в массиве
+
+		for (let i = 0; i < data.length; i++) { // Проходим по всем студентам в массиве
+			total += data[i].progress; // Увеличиваем общий прогресс
+		}
+
+		return [total, data.length];   // Возвращаем общий прогресс и количество студентов
+	} else {
+		let total = [0, 0];            // Общий прогресс и количество студентов для объектов
+		for (let subData of Object.values(data)) { // Проходим по подкурсам
+			const subDataArr = getTotalProgressByRecursion(subData); // Рекурсивно вызываем функцию для подкурсов
+			total[0] += subDataArr[0]; // Увеличиваем общий прогресс
+			total[1] += subDataArr[1]; // Увеличиваем количество студентов
+		}
+		return total;                  // Возвращаем общий прогресс и количество студентов
+	}
+}
+const result = getTotalProgressByRecursion(students); // Вызываем функцию для вычисления прогресса через рекурсию
+console.log(result[0] / result[1]); // Выводим средний прогресс
+
+
+//Задача на факториал (n! = n* (n-1) * (n-2)*...*1)
+function factorial(n) {
+	if (!(n % 1 == 0) || (isNaN(n))) {//proverka na celoe chislo i na chislo
+		return ('Oh sheet!');
+	}
+	else if (n <= 0) {
+		return (1);
+	}
+	else if (n == 1) {
+		return (n);
+	} else {
+		return (n * factorial(n - 1));
+	}
+}
+factorial(1);
+/* Задания на урок:
+
+1) Реализовать функционал, что после заполнения формы и нажатия кнопки "Подтвердить" - 
+новый фильм добавляется в список. Страница не должна перезагружаться.
+Новый фильм должен добавляться в movieDB.movies.
+Для получения доступа к значению input - обращаемся к нему как input.value;
+P.S. Здесь есть несколько вариантов решения задачи, принимается любой, но рабочий.
+
+2) Если название фильма больше, чем 21 символ - обрезать его и добавить три точки
+
+3) При клике на мусорную корзину - элемент будет удаляться из списка (сложно)
+
+4) Если в форме стоит галочка "Сделать любимым" - в консоль вывести сообщение: 
+"Добавляем любимый фильм"
+
+5) Фильмы должны быть отсортированы по алфавиту */
+
+'use strict';
+
+document.addEventListener('DOMContentLoaded', () => {// код сработает только после загрузки DOM документа
+
+	const movieDB = {
+		movies: [
+			"Логан",
+			"Лига справедливости",
+			"Ла-ла лэнд",
+			"Одержимость",
+			"Скотт Пилигрим против..."
+		]
+	};
+
+	const adv = document.querySelectorAll('.promo__adv img'), // получение всех рекламных изображений
+		poster = document.querySelector('.promo__bg'), // получение постера
+		genre = poster.querySelector('.promo__genre'), // получение жанра
+		movieList = document.querySelector('.promo__interactive-list'), // получение списка фильмов
+		addForm = document.querySelector('form.add'), // получение формы добавления
+		addInput = addForm.querySelector('.adding__input'), // получение поля ввода фильма
+		checkbox = addForm.querySelector('[type="checkbox"]'); // получение чекбокса "любимый фильм"
+
+	addForm.addEventListener('submit', (event) => {// отслеживаем отправку формы с помощью обработчика события
+		event.preventDefault(); // предотвращаем перезагрузку страницы
+
+		let newFilm = addInput.value; // получаем значение из поля ввода
+		const favorite = checkbox.checked; // проверяем, установлен ли чекбокс
+
+		if (newFilm) { // если введено название фильма
+
+			if (newFilm.length > 21) { // если название длиннее 21 символа
+				newFilm = `${newFilm.substring(0, 22)}...`; // обрезаем название и добавляем многоточие
+			}
+
+			if (favorite) { // если фильм помечен как любимый
+				console.log("Добавляем любимый фильм"); // выводим сообщение в консоль
+			}
+
+			movieDB.movies.push(newFilm); // добавляем новый фильм в базу данных
+			sortArr(movieDB.movies); // сортируем фильмы
+
+			createMovieList(movieDB.movies, movieList); // обновляем список фильмов на странице
+		}
+
+		event.target.reset(); // сбрасываем форму
+	});
+
+	const deleteAdv = (arr) => { // удаляет рекламные баннеры
+		arr.forEach(item => { // для каждого рекламного изображения
+			item.remove(); // удаляем элемент
+		});
+	};
+
+	const makeChanges = () => { // вносит изменения в жанр и фоновое изображение
+		genre.textContent = 'драма'; // изменяем текст жанра на 'драма'
+		poster.style.backgroundImage = 'url("img/bg.jpg")'; // изменяем фоновое изображение
+	};
+
+	const sortArr = (arr) => { // сортирует массив фильмов
+		arr.sort(); // сортируем массив
+	};
+
+	function createMovieList(films, parent) { // создает и обновляет список фильмов на странице
+		parent.innerHTML = ""; // очищаем текущий список
+		sortArr(films); // сортируем фильмы
+
+		films.forEach((film, i) => { // для каждого фильма в массиве
+			parent.innerHTML += ` 
+                <li class="promo__interactive-item">${i + 1} ${film}
+                    <div class="delete"></div>
+                </li>
+            `; // добавляем фильм в список
+		});
+
+		document.querySelectorAll('.delete').forEach((btn, i) => { // для каждой кнопки удаления
+			btn.addEventListener('click', () => { // добавляем обработчик клика
+				btn.parentElement.remove(); // удаляем элемент фильма из списка
+				movieDB.movies.splice(i, 1); // удаляем фильм из базы данных
+
+				createMovieList(films, parent); // обновляем список фильмов
+			});
+		});
+	}
+
+	deleteAdv(adv); // вызывает функцию deleteAdv для удаления рекламы
+	makeChanges(); // вызывает функцию makeChanges для изменения жанра и фона
+	createMovieList(movieDB.movies, movieList); // вызывает функцию createMovieList для создания списка фильмов
+
+});
+// Порядок выполнения:
+// Сначала код внутри DOMContentLoaded
+// выполняется только после загрузки DOM документа.
+// deleteAdv(adv) — удаляет рекламные баннеры.
+// makeChanges() — изменяет жанр на "драма" и фоновое изображение постера.
+// createMovieList(movieDB.movies, movieList) — создает 
+// и обновляет список фильмов на странице.
+// Обработчик события submit для формы добавления фильмов добавляет новый фильм
+// в базу данных, сортирует массив фильмов и обновляет список фильмов 
+// на странице при отправке формы.
+
+//События на мобильных устройствах
+// Есть еще такие события для мобил:
+// touchstart
+// touchmove
+// touchend
+// touchenter
+// touchleave
+// touchcancel
+// touches
+// targetTouches
+window.addEventListener('DOMContentLoaded', () => {          // код сработает только после загрузки DOM документа
+	const box = document.querySelector('.box');             // получение элемента с классом 'box'
+
+	box.addEventListener('touchstart', (e) => {              // отслеживаем событие touchstart на элементе 'box'
+		e.preventDefault();                                  // предотвращаем поведение по умолчанию
+
+		console.log('Start');                                // выводим в консоль сообщение 'Start'
+	});
+});
