@@ -653,23 +653,24 @@ function test() {
 	console.log('done')
 }
 test();
-// lection 28 metody i svoistva strok i chisel
-//metody vipolnyaut kakoto deistvie nad chem to 
-const str = 'teSt';
-const arr = [1, 2, 6]
-console.log(str.length, arr.length);			//svoistvo .length 
-console.log(str[2]);							//metod
-console.log(str.toUpperCase());
-console.log(str.toLowerCase());
+// лекция 28 методы и свойства строк и чисел
+// методы выполняют какое-то действие над чем-то 
 
-let fruit = "Some fruit";
-console.log(fruit.indexOf('fru'));			//poisk v stroke i prosto vozvrashaet
+const str = 'teSt';                                  // объявление строки
+const arr = [1, 2, 6];                               // объявление массива
 
-const logg = 'Hello world';
-console.log(logg.slice(6, 11));			//metod iz 2h argumentov 1 s kakoi posicii i 2 po kakuu posiciu virezat (ne vkluchitelno) ili esli - to s konca
-console.log(logg.substring(6, 11));		//raznica v tom chto  perviy mozhet bit bolshe vtorogo i e prinimaet otricatelnie -
-console.log(logg.substring(6, 11));		//raznica v tom chto  perviy mozhet bit bolshe vtorogo i e prinimaet otricatelnie -
-console.log(logg.substr(6, 2));			//to zhe samoe no vtoroi argument eto kolichestvo simviliv dlya vozvrata
+console.log(str.length, arr.length);                 // свойство .length выводит длину строки и массива
+console.log(str[2]);                                 // метод для доступа к символу по индексу
+console.log(str.toUpperCase());                      // метод для преобразования строки к верхнему регистру
+console.log(str.toLowerCase());                      // метод для преобразования строки к нижнему регистру
+
+let fruit = "Some fruit";                            // объявление строки
+console.log(fruit.indexOf('fru'));                   // метод для поиска подстроки в строке, возвращает индекс
+
+const logg = 'Hello world';                          // объявление строки
+console.log(logg.slice(6, 11));                      // метод для извлечения части строки с позиции 6 до 11 (не включая 11)
+console.log(logg.substring(6, 11));                  // метод для извлечения части строки с позиции 6 до 11 (не включая 11)
+console.log(logg.substr(6, 2));                      // метод для извлечения части строки с позиции 6 длиной 2 символа
 
 //chisla!!!!   biblioteka Math. vstroeno dazhe v brauzer
 const num = 12.2
@@ -1931,18 +1932,18 @@ console.log(getTotalProgressByIteration(students)); // Выводим средн
 
 // Пример с рекурсией
 function getTotalProgressByRecursion(data) {
-	if (Array.isArray(data)) {        // Проверяем, является ли значение массивом
-		let total = 0;                // Общий прогресс всех студентов в массиве
+	// Общий прогресс и количество студентов для объектов
+	for (let subData of Object.values(data)) { // Проходим по подкурсам
+		const subDataArr = if (Array.isArray(data)) {        // Проверяем, является ли значение массивом
+			let total = 0;                // Общий прогресс всех студентов в массиве
 
-		for (let i = 0; i < data.length; i++) { // Проходим по всем студентам в массиве
-			total += data[i].progress; // Увеличиваем общий прогресс
-		}
+			for (let i = 0; i < data.length; i++) { // Проходим по всем студентам в массиве
+				total += data[i].progress; // Увеличиваем общий прогресс
+			}
 
-		return [total, data.length];   // Возвращаем общий прогресс и количество студентов
-	} else {
-		let total = [0, 0];            // Общий прогресс и количество студентов для объектов
-		for (let subData of Object.values(data)) { // Проходим по подкурсам
-			const subDataArr = getTotalProgressByRecursion(subData); // Рекурсивно вызываем функцию для подкурсов
+			return [total, data.length];   // Возвращаем общий прогресс и количество студентов
+		} else {
+			let total = [0, 0] getTotalProgressByRecursion(subData); // Рекурсивно вызываем функцию для подкурсов
 			total[0] += subDataArr[0]; // Увеличиваем общий прогресс
 			total[1] += subDataArr[1]; // Увеличиваем количество студентов
 		}
@@ -2102,5 +2103,162 @@ window.addEventListener('DOMContentLoaded', () => {          // код сраб�
 		e.preventDefault();                                  // предотвращаем поведение по умолчанию
 
 		console.log('Start');                                // выводим в консоль сообщение 'Start'
+	});
+});
+// Async, defer, динамические скрипты. 
+// Скрипт создающий загрузку других скриптов в HYML
+function loadScript(sc) {
+	const script = document.createElement('script');
+	script.sc = src;
+	script.async = false;
+	document.body - append(script);
+}
+loadScript("js/test.js");
+loadScript("js/some.js");
+
+//Прикол с кодварс
+function booleanToString(b) {
+	if (b) {
+		return ("true");
+	}
+	else {
+		return ("false");
+	}
+}
+//Оператор нулевого слияния (Nullish, ??) ES11
+//Оператор нулевого слияния (??) в JavaScript возвращает правый операнд,
+//если левый операнд является null или undefined.
+//В противном случае возвращается левый операнд.
+let userName = NaN;
+console.log(userName ?? 'User');
+
+//Оператор опциональной цепочки (?.) в JavaScript позволяет безопасно обращаться к вложенным свойствам,
+// методам или элементам массива, возвращая undefined,
+// если промежуточное значение null или undefined, вместо выброса ошибки.
+// Пример:
+const userData = {
+	name: 'Ivan',
+	age: null
+}
+console.log(userData.skills?.js);
+
+//Zadacha
+function amountOfPages(summary) {
+	let result = "";
+	for (let i = 1; i <= summary; i++) {
+		result += i;
+		if (result.length === summary) {
+			console.log(i)
+			return (i);
+		}
+	}
+};
+amountOfPages(1095);
+
+function isPangram(tring) {
+	tring.toLowerCase();
+	let x = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+	let y = true;
+	x.forEach((element) => {
+		if (tring.indexOf(element) < 1) {
+			y = false;
+		}
+	});
+	console.log(y);
+}
+isPangram("The quick brown fox jumps over the lazy dog");
+
+//Zadacha schetchik massivov. Modul 3
+function deepCount(a) {
+	let count = 0;
+	function countElements(array) {
+		// Функция для подсчета элементов в массиве, включая вложенные массивы
+		array.forEach(element => {
+			count++; // Увеличиваем счетчик для каждого элемента
+			if (Array.isArray(element)) {
+				countElements(element); // Рекурсивно считаем элементы вложенных массивов
+			}
+		});
+	}
+	countElements(a); // Запускаем подсчет для исходного массива
+	return count; // Возвращаем итоговый счетчик
+}
+console.log(deepCount([[[[[[[[[]]]]]]]]])); // Пример вызова функции
+
+// Лист-классы для динамической замены классов на сиранице
+const btns = document.querySelectorAll('button');
+// console. log (btns [01.classList.length);
+// console. log (btns [0].classList. item(1));
+console.log(btns[0].classList.add('red '));    // Добавляет класс 'red' к первому элементу из коллекции 'btns' и выводит результат в консоль
+console.log(btns[0].classList.remove('blue')); // Удаляет класс 'blue' у первого элемента из коллекции 'btns' и выводит результат в консоль
+console.log(btns[0].classList.toggle('blue')); // Переключает наличие класса 'blue' у первого элемента из коллекции 'btns' и выводит результат в консоль
+
+if (btns[1].classList.contains('red')) {       // Проверяет, содержит ли второй элемент из коллекции 'btns' класс 'red'
+	console.log('red');                        // Если второй элемент содержит класс 'red', выводит 'red' в консоль
+}
+
+btns[0].addEventListener('click', () => {      // Добавляет обработчик события 'click' к первому элементу из коллекции 'btns'
+	if (!btns[1].classList.contains('red')) {  // Проверяет, не содержит ли второй элемент из коллекции 'btns' класс 'red'
+		btns[1].classList.add('red');          // Если не содержит, добавляет класс 'red' ко второму элементу
+	} else {                                   // Если содержит
+		btns[1].classList.remove('red');       // Удаляет класс 'red' у второго элемента
+	}
+});
+btns[1].classList.toggle('red');//То же самое только не всегда работает
+
+// Делегирование событий: Назначение какой-то функции для всех потомков одного родителя на странице
+const wrapper = document.querySelector('.btn-block'); // Ищем элемент с классом 'btn-block' и сохраняем его в переменную 'wrapper'
+
+// Добавляем обработчик события 'click' к элементу 'wrapper'
+wrapper.addEventListener('click', (event) => {
+	// Проверяем, что событие произошло на элементе, который существует и является кнопкой
+	if (event.target && event.target.tagName == 'BUTTON') {
+		console.log('Hello'); // Если это кнопка, выводим 'Hello' в консоль
+	}
+});
+
+const btn = document.createElement('button'); // Создаем новый элемент 'button'
+btn.classList.add('red'); // Добавляем класс 'red' к созданной кнопке
+wrapper.append(btn); // Добавляем созданную кнопку в элемент 'wrapper'
+
+
+
+// Проект сайтика
+/* eslint-disable indent */
+document.addEventListener('DOMContentLoaded', function () {  // Ждем загрузки DOM, чтобы все элементы были доступны
+
+	// Tabs
+	let tabs = document.querySelectorAll('.tabheader__item'),        // Получаем все элементы вкладок
+		tabsContent = document.querySelectorAll('.tabcontent'),      // Получаем все элементы содержимого вкладок
+		tabsParent = document.querySelector('.tabheader__items');    // Получаем родительский элемент вкладок
+
+	function hideTabContent() {                                      // Функция скрытия содержимого вкладок
+		tabsContent.forEach(item => {                                // Проходим по каждому элементу содержимого вкладок
+			item.style.display = 'none';                             // Скрываем элемент
+		});
+
+		tabs.forEach(item => {                                       // Проходим по каждой вкладке
+			item.classList.remove('tabheader__item_active');         // Удаляем активный класс у вкладки
+		});
+	}
+
+	function showTabContent(i = 0) {                                 // Функция показа содержимого вкладки (по умолчанию первой)
+		tabsContent[i].style.display = 'block';                      // Показываем содержимое выбранной вкладки
+		tabs[i].classList.add('tabheader__item_active');             // Добавляем активный класс к выбранной вкладке
+	}
+
+	hideTabContent();                                                // Скрываем все вкладки
+	showTabContent();                                                // Показываем первую вкладку
+
+	tabsParent.addEventListener('click', function (event) {          // Добавляем обработчик события 'click' на родительский элемент вкладок
+		const target = event.target;                                 // Получаем элемент, на который кликнули
+		if (target && target.classList.contains('tabheader__item')) { // Проверяем, что кликнули на элемент с классом 'tabheader__item'
+			tabs.forEach((item, i) => {                              // Проходим по всем вкладкам
+				if (target == item) {                                // Если кликнули на текущую вкладку
+					hideTabContent();                                // Скрываем все вкладки
+					showTabContent(i);                               // Показываем выбранную вкладку
+				}
+			});
+		}
 	});
 });
